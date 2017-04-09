@@ -17,31 +17,31 @@ import {  CuisinesService } from '../../providers/cuisines-service';
 export class CuisinesPage {
   cuisines: Cuisines[];
   cuisinesBody: Cuisines = {
-   cuisinesName: "from ang 2",
+   cuisinesName: "hi",
    id: 4
   }
 
 
   constructor(public navCtrl: NavController, public navParams: NavParams,private cuisinesData: CuisinesService)
   {
-    cuisinesData.load().subscribe(cuisines => {
+      cuisinesData.load<Cuisines>('cuisines/listAll','cuisines').subscribe(cuisines => {
       console.log('cuisines comp');
       console.log(cuisines);
       this.cuisines = cuisines;
-      this.addCuisine(cuisinesData);
-      this.editCuisine(cuisinesData);
+      this.addCuisine(cuisinesData,'cuisines');
+      this.editCuisine(cuisinesData,'cuisines');
       console.log(this.cuisines);
       //this.originalUsers = users;
     })
   }
 
-  addCuisine(cuisinesService: CuisinesService){
-      cuisinesService.add(this.cuisinesBody).subscribe();
+  addCuisine(cuisinesService: CuisinesService,path: String){
+      cuisinesService.add(this.cuisinesBody,path).subscribe();
   }
-  editCuisine(cuisinesService: CuisinesService){
+  editCuisine(cuisinesService: CuisinesService,path: String ){
 
     //this.cuisinesBody.cuisinesName = "cuisine from angular 2";
-    cuisinesService.update(this.cuisinesBody).subscribe();
+    cuisinesService.update(this.cuisinesBody,path).subscribe();
   }
 
 

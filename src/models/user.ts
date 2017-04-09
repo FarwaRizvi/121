@@ -7,4 +7,5 @@ export interface User {
   public_gists: number;
   followers: number;
   following: number;
+  ch: string;
 }
