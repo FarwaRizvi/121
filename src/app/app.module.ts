@@ -1,27 +1,21 @@
+import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
+import { GithubUsers } from '../providers/github-users';
+import { CuisinesService } from '../providers/cuisines-service';
+import { HttpModule } from '@angular/http';
+
 import { HelloIonicPage } from '../pages/hello-ionic/hello-ionic';
 import { ItemDetailsPage } from '../pages/item-details/item-details';
 import { ListPage } from '../pages/list/list';
+import { User } from '../pages/user/user';
+import { Map } from '../pages/map/map';
+import { CuisinesPage } from '../pages/cuisines/cuisines';
+import { UserDetails } from '../pages/user-details/user-details';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-
-import { UsersPage } from '../pages/users/users';
-import { ReposPage } from '../pages/repos/repos';
-import { OrganisationsPage } from '../pages/organisations/organisations';
-import { UserDetailsPage } from '../pages/user-details/user-details';
-import { LoginPage } from '../pages/login/login';
-import { RegisterPage } from '../pages/register/register';
-import { HomePagePage } from '../pages/home-page/home-page';
-import { CuisinesPage } from '../pages/cuisines/cuisines';
-
-import { GithubUsers } from '../providers/github-users';
-import { AuthService } from '../providers/auth-service';
-import { CuisinesService } from '../providers/cuisines-service';
-
-
 
 @NgModule({
   declarations: [
@@ -29,17 +23,15 @@ import { CuisinesService } from '../providers/cuisines-service';
     HelloIonicPage,
     ItemDetailsPage,
     ListPage,
-	UsersPage,
-    ReposPage,
-	UserDetailsPage,
-    OrganisationsPage,
-    LoginPage,
-    HomePagePage,
-    RegisterPage,
-    CuisinesPage
+    User,
+    Map,
+    CuisinesPage,
+    UserDetails
   ],
   imports: [
-    IonicModule.forRoot(MyApp)
+    BrowserModule,
+    HttpModule,
+    IonicModule.forRoot(MyApp),
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -47,21 +39,16 @@ import { CuisinesService } from '../providers/cuisines-service';
     HelloIonicPage,
     ItemDetailsPage,
     ListPage,
-	UsersPage,
-    ReposPage,
-	UserDetailsPage,
-    OrganisationsPage,
-    LoginPage,
-    HomePagePage,
-    RegisterPage,
-    CuisinesPage
+    User,
+    Map,
+    CuisinesPage,
+    UserDetails
   ],
   providers: [
     StatusBar,
+    GithubUsers,
+    CuisinesService,
     SplashScreen,
-	GithubUsers,
-  AuthService,
-  CuisinesService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

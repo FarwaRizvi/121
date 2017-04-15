@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-
 import { NavController, NavParams } from 'ionic-angular';
-
 import { ItemDetailsPage } from '../item-details/item-details';
+
+import { Items } from '../models/items'
+import { ListService } from '../providers/list-service';
 
 
 @Component({

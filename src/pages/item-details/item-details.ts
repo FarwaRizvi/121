@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-
 import { NavController, NavParams } from 'ionic-angular';
+import { Items } from '../models/items';
 
 
 @Component({
@@ -8,6 +8,7 @@ import { NavController, NavParams } from 'ionic-angular';
   templateUrl: 'item-details.html'
 })
 export class ItemDetailsPage {
+  //items: Items;
   selectedItem: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {

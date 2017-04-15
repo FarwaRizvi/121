@@ -1,4 +1,5 @@
-export interface Items {
+export interface Items
+{
   itemId: number;
   itemName: string;
   desc: string;
@@ -12,4 +13,5 @@ export interface Items {
   supplierName: string;
   supplierId: number;
   mediaId: number;
+
 }

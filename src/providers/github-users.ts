@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
-import { User } from '../models/user';
+import { UserModel } from '../models/userModel';
 
 /*
   Generated class for the GithubUsers provider.
@@ -11,31 +11,22 @@ import { User } from '../models/user';
   for more info on providers and Angular 2 DI.
 */
 @Injectable()
-export class GithubUsers {
-	githubApiUrl = 'https://api.github.com';
-
-
+export class GithubUsers{
+apiUrl = 'https://api.github.com';
 
   constructor(public http: Http) {
     console.log('Hello GithubUsers Provider');
   }
-
-  // Load all github users
-  load(): Observable<User[]> {
-    return this.http.get(`${this.githubApiUrl}/users`)
-      .map(res => <User[]>res.json());
+  load(): Observable<UserModel[]>{
+    return this.http.get(`${this.apiUrl}/users`)
+     .map(res => <UserModel[]>res.json());
   }
 
-  // Get github user by providing login(username)
-  loadDetails(login: string): Observable<User> {
-    return this.http.get(`${this.githubApiUrl}/users/${login}`)
-      .map(res => <User>(res.json()))
+  loadDetails(login: string): Observable<UserModel>{
+    return this.http.get(`${this.apiUrl}/users/${login}`)
+    .map(res => <UserModel>(res.json()))
   }
 
-  // Search for github users
-  searchUsers(searchParam: string): Observable<User[]> {
-    return this.http.get(`${this.githubApiUrl}/search/users?q=${searchParam}`)
-      .map(res => <User[]>(res.json().items))
-  }
+
 
 }

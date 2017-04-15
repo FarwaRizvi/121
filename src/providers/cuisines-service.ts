@@ -7,6 +7,7 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 
 import { Cuisines } from '../models/cuisines';
+import { Items } from '../models/items';
 
 /*
   Generated class for the Cuisines provider.
